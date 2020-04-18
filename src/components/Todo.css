@@ -1,0 +1,38 @@
+.todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 0.25em;
+}
+
+.todo__completed {
+  height: 1.5em;
+  width: 1.5em;
+  border: 1px solid lightblue;
+  border-radius: 0.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo__completed img {
+  height: 90%;
+  width: 90%;
+}
+
+.todo__name {
+  margin-left: 0.25em;
+}
+
+.todo__delete {
+  color: red;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-left: 8px;
+}
+
+.todo__delete:hover {
+  font-size: 1.6rem;
+  cursor: pointer;
+}

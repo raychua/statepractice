@@ -1,0 +1,60 @@
+.todolist {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 0.25em;
+}
+.todolist .taskicon {
+  border: 2px solid lightblue;
+  height: 18px;
+  width: 18px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todolist .deleteicon {
+  margin-left: 15px;
+  height: 18px;
+  width: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todolist .task {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #464545;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.Label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #464545;
+}
+
+.newTaskInput {
+  margin-left: 10px;
+  padding-left: 5px;
+  font-size: 14px;
+  border: 1px solid #8a8989;
+  height: 24px;
+  width: 300px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.submit {
+  font-size: 14px;
+  border: 1px solid cornflowerblue;
+  height: 28px;
+  width: 80px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: cornflowerblue;
+  color: #ffffff;
+}

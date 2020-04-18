@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+//import Todolist from "./components/Todolist";
+//import Todolist1 from "./components/Todolist1";
+//import ReactRouterPractice from "./components/ReactRouter";
+//import Counter from "./components/Counter";
+//import StoreCounter from "./components/StoreCounter";
+import { Provider } from "react-redux";
+import todoStore from "./todoStore/todoStore";
+import TodoList from "./todoComponents/TodoList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={todoStore}>
+      <div className="App">
+        <TodoList />
+      </div>
+    </Provider>
   );
 }
 

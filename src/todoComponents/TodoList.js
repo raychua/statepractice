@@ -4,13 +4,17 @@ import { connect } from "react-redux";
 import { add_task } from "../todoActions/todoAction";
 import Todoitem from "./Todoitem";
 
-function TodoList() {
-  const [newName, setNewName] = useState("");
+function TodoList({ todoList, addTask }) {
+  //props retrieved from the state have to passed in (destructured) and sequence to match the mapStateToProps below?
+  //Accessing this.props is only possible for Class Component, and so there is no need anymore since we implement redux. right?
+  const [newTask, setNewTask] = useState("");
 
   const displayTodos = () => {
-    return this.props.todoList.map((todo) => {
-      return <Todoitem Todoitem={todo} />;
+    console.log("num of items:" + todoList.length);
+    const list = todoList.map((todo) => {
+      return <Todoitem todoItem={todo} />;
     });
+    return list;
   };
 
   return (
@@ -20,14 +24,15 @@ function TodoList() {
         <span className="newTaskInput">
           <input
             type="input"
-            onChange={(event) => setNewName(event.target.value)}
+            onChange={(event) => setNewTask(event.target.value)}
           />
         </span>
         <span>
           <button
             onClick={() => {
-              add_task({ name: newName, isDone: false });
-              setNewName("");
+              console.log("clicked");
+              addTask({ name: newTask, isDone: false });
+              setNewTask("");
             }}
           >
             Add Task
@@ -39,12 +44,14 @@ function TodoList() {
   );
 }
 
+// why is the todoList retrieved through todoActions?
+// I thought todoActions is On  used meant for mapping Action for updates to Store?
 const mapStateToProps = (state) => {
-  return { todoList: state.todoList };
+  return { todoList: state.todoReducers.todoList };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  add_task: (todo) => dispatch(add_task(todo)),
+  addTask: (todo) => dispatch(add_task(todo)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

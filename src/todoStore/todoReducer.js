@@ -14,17 +14,20 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_TASK_TYPE: {
+      console.log("in add task reducer");
+
       return {
         ...state,
-        todoList: [...state.todoList, action.todoitem],
+        todoList: [...state.todoList, action.param],
       };
     }
 
     case DELETE_TASK_TYPE: {
+      console.log("in delete task reducer");
       return {
         ...state,
         todoList: state.todoList.filter((todoitem) => {
-          return !(todoitem.name === action.todoitem.name);
+          return !(todoitem.name === action.param);
         }),
       };
     }
@@ -33,9 +36,10 @@ export default function (state = initialState, action) {
       return {
         ...state,
         todoList: state.todoList.map((todoitem) => {
-          if (todoitem.name === action.todoitem.name)
-            todoitem.isDone = !action.todoitem.isDone;
-          return todoitem;
+          if (todoitem.name === action.param) {
+            todoitem.isDone = !todoitem.isDone;
+          }
+          return { ...todoitem };
         }),
       };
     }
